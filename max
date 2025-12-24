@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recommended Financial Resources</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 360px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+h1 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+p {
+  font-size: 14px;
+  color: #444;
+}
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.watch {
+  background: #007bff;
+  color: #fff;
+}
+.skip {
+  background: #cccccc;
+  color: #000;
+}
+.footer {
+  font-size: 11px;
+  text-align: center;
+  margin-top: 15px;
+}
+.footer a {
+  color: #666;
+  text-decoration: none;
+  margin: 0 4px;
+}
+.offer-wall .offer {
+  background: #f1f1f1;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+}
+.offer-wall a {
+  display: block;
+  background: #28a745;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  margin-top: 6px;
+  text-decoration: none;
+  border-radius: 4px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="app"></div>
+
+<script>
+const offers = [
+  {
+    title: "Benefits You May Qualify For",
+    text: "Explore financial and assistance benefits available to you.",
+    link: "https://afflat3d2.com/trk/lnk/06CD8466-B538-444A-BD98-2C62A3544158/?o=26996&c=918277&a=248934&k=3F9C5CE284F01A97EC43172DFC8DF6F9&l=28846&s1=git&s2={clickid}&s3={sub_id}&s4={device.ip}&s5={traffic_type}"
+  },
+  {
+    title: "Reduce Your Debt Faster",
+    text: "See how people reduce debt and consolidate payments.",
+    link: "https://afflat3d3.com/trk/lnk/06CD8466-B538-444A-BD98-2C62A3544158/?o=26995&c=918277&a=248934&k=3B36FC8D6B90A14815BA15D845F160EC&l=29175&s1=git&s2={sub_id}&s3={clickid}&s4={device.geo.city}"
+  },
+  {
+    title: "Spike Your Credit Score",
+    text: "Discover tools people use to check and improve their credit score.",
+    link: "https://afflat3d3.com/trk/lnk/06CD8466-B538-444A-BD98-2C62A3544158/?o=28382&c=918277&a=248934&k=90714ADDA2AD1F8D38574B8BB7A279D6&l=31279&s1=git&s2={clickid}&s3={sub_id}&s4={device.geo.city}&s5={traffic_type}"
+  },
+  {
+    title: "Access a Personal Loan",
+    text: "Check options that may provide funds as soon as the next business day.",
+    link: "https://afflat3d3.com/trk/lnk/06CD8466-B538-444A-BD98-2C62A3544158/?o=26224&c=918277&a=248934&k=25B0BD546D8A2708B3B1495018B7024D&l=27627&s1=git&s2={clickid}&s3={sub_id}&s4={device.geo.city}&s5={traffic_type}"
+  },
+  {
+    title: "Financial Aid Programs",
+    text: "Explore government and private financial assistance programs.",
+    link: "https://afflat3d2.com/trk/lnk/06CD8466-B538-444A-BD98-2C62A3544158/?o=23432&c=918277&a=248934&k=C1653A3BE681D1FD20B0AA355448A992&l=24395&s1=git&s2={clickid}&s3={sub_id}&s4={device.geo.city}&s5={traffic_type}"
+  }
+];
+
+let step = 0;
+const app = document.getElementById("app");
+
+function renderStep() {
+  if (step >= offers.length) {
+    renderOfferWall();
+    return;
+  }
+
+  const o = offers[step];
+
+  app.innerHTML = `
+    <h1>This May Be Useful for You</h1>
+    <p>${o.text}</p>
+    <button class="watch" onclick="openOffer()">Watch Here</button>
+    <button class="skip" onclick="nextStep()">Skip</button>
+
+    <div class="footer">
+      <a href="disclaimer.html" target="_blank">Earnings Disclaimer</a> |
+      <a href="terms.html" target="_blank">Terms of Service</a> |
+      <a href="privacy.html" target="_blank">Privacy Policy</a>
+    </div>
+  `;
+}
+
+function openOffer() {
+  window.open(offers[step].link, "_blank", "noopener,noreferrer");
+  nextStep();
+}
+
+function nextStep() {
+  step++;
+  renderStep();
+}
+
+function renderOfferWall() {
+  app.innerHTML = `
+    <h1>Available Resources</h1>
+    <div class="offer-wall">
+      ${offers.map(o => `
+        <div class="offer">
+          <strong>${o.title}</strong>
+          <a href="${o.link}" target="_blank" rel="noopener noreferrer">View Details</a>
+        </div>
+      `).join("")}
+    </div>
+  `;
+}
+
+renderStep();
+</script>
+
+</body>
+</html>
